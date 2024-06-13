@@ -1,0 +1,94 @@
+// Classe principale pour l'application
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import abstractfactory.*;
+import strategy.*;
+
+public class GestionRestaurant {
+    private static List<Commande> commandes = new ArrayList<>();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        CommandeFactory commandeFactory;
+        TarificationStrategy tarificationStrategy;
+
+        System.out.println("Bienvenue au système de gestion des commandes du restaurant.");
+        
+        while (true) {
+            System.out.println("1. Créer une commande");
+            System.out.println("2. Afficher les commandes");
+            System.out.println("3. Quitter");
+            int choix = scanner.nextInt();
+
+            switch (choix) {
+                case 1:
+                    System.out.println("Sélectionnez le type de commande :");
+                    System.out.println("1. Sur place");
+                    System.out.println("2. À emporter");
+                    System.out.println("3. En ligne");
+                    int typeCommande = scanner.nextInt();
+
+                    switch (typeCommande) {
+                        case 1:
+                            commandeFactory = new CommandeSurPlaceFactory();
+                            break;
+                        case 2:
+                            commandeFactory = new CommandeEmporterFactory();
+                            break;
+                        case 3:
+                            commandeFactory = new CommandeEnLigneFactory();
+                            break;
+                        default:
+                            System.out.println("Choix invalide.");
+                            continue;
+                    }
+
+                    Commande commande = commandeFactory.creerCommande();
+                    commandes.add(commande);
+
+                    System.out.println("Sélectionnez la stratégie de tarification :");
+                    System.out.println("1. Normale");
+                    System.out.println("2. Réduction");
+                    System.out.println("3. Happy Hour");
+                    int typeTarification = scanner.nextInt();
+
+                    switch (typeTarification) {
+                        case 1:
+                            tarificationStrategy = new TarificationNormale();
+                            break;
+                        case 2:
+                            tarificationStrategy = new Reduction();
+                            break;
+                        case 3:
+                            tarificationStrategy = new HappyHour();
+                            break;
+                        default:
+                            System.out.println("Choix invalide.");
+                            continue;
+                    }
+
+                    System.out.println("Entrez le prix initial :");
+                    double prixInitial = scanner.nextDouble();
+                    double prixFinal = tarificationStrategy.calculerPrix(prixInitial);
+                    System.out.println("Prix final après application de la stratégie : " + prixFinal);
+
+                    break;
+                case 2:
+                    for (Commande c : commandes) {
+                        c.afficherDetails();
+                    }
+                    break;
+                case 3:
+                    System.out.println("Au revoir !");
+                    scanner.close();
+                    System.exit(0);
+                    break;
+                default:
+                    System.out.println("Choix invalide.");
+                    break;
+            }
+        }
+    }
+}
