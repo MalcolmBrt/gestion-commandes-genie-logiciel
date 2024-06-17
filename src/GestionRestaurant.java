@@ -69,7 +69,7 @@ public class GestionRestaurant {
                             continue;
                     }
 
-                    System.out.println("Entrez le prix initial :");
+                    System.out.print("Entrez le prix initial : ");
                     double prixInitial = scanner.nextDouble();
                     double prixFinal = tarificationStrategy.calculerPrix(prixInitial);
                     System.out.println("Prix final après application de la stratégie : " + prixFinal);
