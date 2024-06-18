@@ -1,5 +1,5 @@
 package strategy;
 
 public interface TarificationStrategy {
-    double calculerPrix(double prixInitial);
+    int calculerPrix(int prixInitial);
 }

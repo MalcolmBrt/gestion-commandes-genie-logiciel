@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class CommandeEmporterFactory implements CommandeFactory {
+public class CommandeLivraisonFactory implements CommandeFactory {
     public Commande creerCommande() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Entrez le nom : ");
@@ -12,7 +12,9 @@ public class CommandeEmporterFactory implements CommandeFactory {
         System.out.print("Entrez le numéro de téléphone : ");
         int numeroTel = scanner.nextInt();
         scanner.nextLine(); // Consomme la nouvelle ligne restante
-        CommandeEmporter commande = new CommandeEmporter(numeroTel, nomClient);
+        System.out.print("Entrez l'adresse : ");
+        String adresse = scanner.nextLine();
+        CommandeLivraison commande = new CommandeLivraison(numeroTel, nomClient, adresse);
         HashMap<Integer, Plat> menu = ConnexionBDD.getMenu();
         while (true) {
             // boucle for pour print tous les plats avec leur numéro du hashmap
@@ -34,4 +36,5 @@ public class CommandeEmporterFactory implements CommandeFactory {
         }
         return commande;
     }
+
 }

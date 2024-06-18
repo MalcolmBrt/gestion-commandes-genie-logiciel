@@ -27,7 +27,7 @@ public class GestionRestaurant {
                     System.out.println("Sélectionnez le type de commande :");
                     System.out.println("1. Sur place");
                     System.out.println("2. À emporter");
-                    System.out.println("3. En ligne");
+                    System.out.println("3. À livrer");
                     int typeCommande = scanner.nextInt();
 
                     switch (typeCommande) {
@@ -38,7 +38,7 @@ public class GestionRestaurant {
                             commandeFactory = new CommandeEmporterFactory();
                             break;
                         case 3:
-                            commandeFactory = new CommandeEnLigneFactory();
+                            commandeFactory = new CommandeLivraisonFactory();
                             break;
                         default:
                             System.out.println("Choix invalide.");
@@ -69,10 +69,9 @@ public class GestionRestaurant {
                             continue;
                     }
 
-                    System.out.print("Entrez le prix initial : ");
-                    double prixInitial = scanner.nextDouble();
-                    double prixFinal = tarificationStrategy.calculerPrix(prixInitial);
-                    System.out.println("Prix final après application de la stratégie : " + prixFinal);
+                    int prixFinal = tarificationStrategy.calculerPrix(commande.getPrix());
+                    commande.setPrix(prixFinal);
+                    System.out.println("Prix final après application de la stratégie : " + prixFinal + " F");
 
                     break;
                 case 2:

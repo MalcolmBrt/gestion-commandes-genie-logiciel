@@ -1,19 +1,40 @@
 package abstractfactory;
 
+import java.util.ArrayList;
+
 public abstract class Commande {
     protected int numeroTel;
     protected String nomClient;
-    protected String plat;
+    protected ArrayList<Plat> plat = new ArrayList<Plat>();
+    protected int prix;
 
-    public Commande(int numeroTel, String nomClient, String plat) {
+    public Commande(int numeroTel, String nomClient) {
         this.numeroTel = numeroTel;
         this.nomClient = nomClient;
-        this.plat = plat;
     }
     
     public void afficherDetails() {
         System.out.println("Numéro de téléphone : " + numeroTel);
         System.out.println("Nom du client : " + nomClient);
-        System.out.println("Plat : " + plat);
+        System.out.println("Plats commandés : ");
+        for (Plat plat : plat) {
+            System.out.println(plat);
+        }
+        System.out.println("Prix total : " + prix + " F");
     }
+
+    public void ajouterPlat(Plat plat) {
+        this.plat.add(plat);
+        this.prix += plat.getPrix();
+    }
+
+    public int getPrix() {
+        return prix;
+    }
+
+    public void setPrix(int prix) {
+        this.prix = prix;
+    }
+
+     
 }

@@ -1,7 +1,7 @@
 package strategy;
 
 public class TarificationNormale implements TarificationStrategy {
-    public double calculerPrix(double prixInitial) {
+    public int calculerPrix(int prixInitial) {
         return prixInitial;
     }
 }
