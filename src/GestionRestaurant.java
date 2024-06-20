@@ -50,8 +50,8 @@ public class GestionRestaurant {
 
                     System.out.println("Sélectionnez la stratégie de tarification :");
                     System.out.println("1. Normale");
-                    System.out.println("2. Réduction");
-                    System.out.println("3. Happy Hour");
+                    System.out.println("2. Réduction (-10%)");
+                    System.out.println("3. Happy Hour (-30%)");
                     int typeTarification = scanner.nextInt();
 
                     switch (typeTarification) {
