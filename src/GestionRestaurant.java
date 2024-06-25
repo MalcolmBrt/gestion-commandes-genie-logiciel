@@ -7,7 +7,7 @@ import abstractfactory.*;
 import strategy.*;
 
 public class GestionRestaurant {
-    private static List<Commande> commandes = new ArrayList<>();
+    private static ArrayList<Commande> commandes = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
