@@ -1,6 +1,6 @@
 
 // Classe principale pour l'application
-import java.util.List;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
