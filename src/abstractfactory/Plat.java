@@ -21,5 +21,5 @@ public class Plat {
     public int getPrix() {
         return prix;
     }
-    
+
 }

@@ -1,3 +1,4 @@
+
 // Classe principale pour l'application
 import java.util.List;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ public class GestionRestaurant {
         TarificationStrategy tarificationStrategy;
 
         System.out.println("Bienvenue au système de gestion des commandes du restaurant.");
-        
+
         while (true) {
             System.out.println("1. Créer une commande");
             System.out.println("2. Afficher les commandes");

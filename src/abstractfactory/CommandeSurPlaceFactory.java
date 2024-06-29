@@ -3,6 +3,7 @@ package abstractfactory;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.List;
 
 public class CommandeSurPlaceFactory implements CommandeFactory {
     public Commande creerCommande() {
@@ -32,6 +33,16 @@ public class CommandeSurPlaceFactory implements CommandeFactory {
             } else {
                 System.out.println("Le numéro de plat est invalide.");
             }
+        }
+        return commande;
+    }
+
+    // Méthode utiliser pour les tests
+
+    public Commande creerCommandeTest(String nomClient, int numeroTel, List<Plat> plats) {
+        CommandeSurPlace commande = new CommandeSurPlace(numeroTel, nomClient);
+        for (Plat plat : plats) {
+            commande.ajouterPlat(plat);
         }
         return commande;
     }

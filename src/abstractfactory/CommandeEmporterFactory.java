@@ -1,5 +1,6 @@
 package abstractfactory;
 
+import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -34,4 +35,15 @@ public class CommandeEmporterFactory implements CommandeFactory {
         }
         return commande;
     }
+
+    // Méthode utiliser pour les tests
+
+    public Commande creerCommandeTest(String nomClient, int numeroTel, List<Plat> plats) {
+        CommandeEmporter commande = new CommandeEmporter(numeroTel, nomClient);
+        for (Plat plat : plats) {
+            commande.ajouterPlat(plat);
+        }
+        return commande;
+    }
+
 }
