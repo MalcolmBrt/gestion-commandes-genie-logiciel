@@ -3,10 +3,10 @@ package abstractfactory;
 import java.util.ArrayList;
 
 public abstract class Commande {
-    protected int numeroTel;
-    protected String nomClient;
-    protected ArrayList<Plat> plat = new ArrayList<Plat>();
-    protected int prix;
+    private int numeroTel;
+    private String nomClient;
+    private ArrayList<Plat> plat = new ArrayList<Plat>();
+    private int prix;
 
     public Commande(int numeroTel, String nomClient) {
         this.numeroTel = numeroTel;

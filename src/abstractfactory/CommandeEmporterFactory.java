@@ -14,7 +14,8 @@ public class CommandeEmporterFactory implements CommandeFactory {
         int numeroTel = scanner.nextInt();
         scanner.nextLine(); // Consomme la nouvelle ligne restante
         CommandeEmporter commande = new CommandeEmporter(numeroTel, nomClient);
-        HashMap<Integer, Plat> menu = ConnexionBDD.getMenu();
+        ConnexionBDD co = new ConnexionBDD();
+        HashMap<Integer, Plat> menu = co.getMenu();
         while (true) {
             // boucle for pour print tous les plats avec leur numéro du hashmap
             for (Map.Entry<Integer, Plat> entry : menu.entrySet()) {

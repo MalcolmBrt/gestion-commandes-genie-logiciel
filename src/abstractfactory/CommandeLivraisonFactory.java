@@ -16,7 +16,8 @@ public class CommandeLivraisonFactory implements CommandeFactory {
         System.out.print("Entrez l'adresse : ");
         String adresse = scanner.nextLine();
         CommandeLivraison commande = new CommandeLivraison(numeroTel, nomClient, adresse);
-        HashMap<Integer, Plat> menu = ConnexionBDD.getMenu();
+        ConnexionBDD co = new ConnexionBDD();
+        HashMap<Integer, Plat> menu = co.getMenu();
         while (true) {
             // boucle for pour print tous les plats avec leur numéro du hashmap
             for (Map.Entry<Integer, Plat> entry : menu.entrySet()) {

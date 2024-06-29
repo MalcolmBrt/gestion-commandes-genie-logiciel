@@ -14,7 +14,8 @@ public class CommandeSurPlaceFactory implements CommandeFactory {
         int numeroTel = scanner.nextInt();
         scanner.nextLine(); // Consomme la nouvelle ligne restante
         CommandeSurPlace commande = new CommandeSurPlace(numeroTel, nomClient);
-        HashMap<Integer, Plat> menu = ConnexionBDD.getMenu();
+        ConnexionBDD co = new ConnexionBDD();
+        HashMap<Integer, Plat> menu = co.getMenu();
         System.out.println(menu.get(2));
         while (true) {
             // boucle for pour print tous les plats avec leur numéro du hashmap
