@@ -1,3 +1,2 @@
-TODO :\
-Ajouter tests unitaires\
-Finir rapport
+Les identifiants pour la base de données sont ceux par défaut.
+Il faut les modifier dans gestion-commandes-genie-logiciel\src\abstractfactory\ConnexionBDD.java
